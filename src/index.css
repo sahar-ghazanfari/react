@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background-app-rgb: 30, 41, 59;
+    --background-title: 51, 65, 85;
+    --color-primary: 193, 202, 214;
+    --color-secondary: 70, 84, 104;
+    --color-background-modal: 51, 65, 85;
+    --color-texts: 203, 213, 225;
+    --color-border: 97, 105, 120;
+    --color-h2: 148, 163, 184;
+    --color-delete: 248, 113, 113;
+    --color-btn: 100, 116, 139;
+    --color-quantity: 148, 162, 180;
+    --color-white: 255, 255, 255;
+    --color-black: 0, 0, 0;
+  }
+}
+
+@layer components {
+  .input {
+    @apply bg-transparent border border-Inputs rounded-lg w-fit p-2 text-titleH2 my-2 text-lg;
+  }
+}
