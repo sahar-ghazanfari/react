@@ -1,19 +1,24 @@
 import React, { useContext } from "react";
-import { SearchContext } from "../App";
+import { MyContext } from "../App";
 
-function ProductList({ product, handleDelete }) {
-  const search = useContext(SearchContext);
+function ProductList({ onDelete }) {
+  const { searching, products } = useContext(MyContext);
+  const [searchVal, setSearchVal] = searching;
+  const [productVal, setProductVal] = products;
+  
 
   return (
     <div>
       <h2 className="text-textColor font-bold text-xl border-b">
         Product List
       </h2>
-      {product
+      {productVal
         .filter((val) => {
-          if (search === "") {
+          if (searchVal === "") {
             return val;
-          } else if (val.title.toLowerCase().includes(search.toLowerCase())) {
+          } else if (
+            val.title.toLowerCase().includes(searchVal.toLowerCase())
+          ) {
             return val;
           }
         })
@@ -32,7 +37,7 @@ function ProductList({ product, handleDelete }) {
                   </span>
                   <button
                     className="border border-delete rounded-full py-1 px-2 text-delete"
-                    onClick={() => handleDelete(val)}
+                    onClick={() => onDelete(val)}
                   >
                     delete
                   </button>

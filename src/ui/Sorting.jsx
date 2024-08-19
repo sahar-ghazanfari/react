@@ -1,25 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
+import { MyContext } from "../App";
 
-function Sorting({ product }) {
+function Sorting() {
+  const { products } = useContext(MyContext);
+  const [productVal, setProductVal] = products;
+
   const handleSorting = () => {
     if (value == "earlest") {
-      product
+      productVal
         ?.map((time) => {
-          return { ...time, date: product.createdAt };
+          return { ...time, date: productVal.createdAt };
         })
         .sort((a, b) => a.date - b.date);
     } else {
-      product
+      productVal
         ?.map((time) => {
-          return { ...time, date: product.createdAt };
+          return { ...time, date: productVal.createdAt };
         })
         .sort((a, b) => b.date - a.date);
     }
   };
 
   return (
-    <div className="w-full flex justify-between ">
-      <label className="text-Inputs text-lg" htmlFor="sorting">
+    <div className="md:w-full md:flex md:justify-between ">
+      <label className="hidden md:block text-Inputs text-lg" htmlFor="sorting">
         sort
       </label>
       <select

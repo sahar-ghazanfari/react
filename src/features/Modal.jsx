@@ -1,12 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import InputFields from "../ui/InputFields";
+import { MyContext } from "../App";
 
-function modal({
-  setModal,
-  title,
-  setTitle,
-  inputValue,
-  setInputValue,
-}) {
+function modal({ setModal, title, setTitle }) {
+  const { Values } = useContext(MyContext);
+  const [inputVal, setInputVal] = Values;
   let nextId = 0;
 
   return (
@@ -15,14 +13,11 @@ function modal({
         Add new category
       </h2>
       <form className="bg-modal flex flex-col rounded-lg p-4">
-        <label htmlFor="" className="text-titleH2 my-2 text-lg">
-          title
-        </label>
-        <input
+        <InputFields
+          label="title"
+          type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          className="input"
-          type="text"
         />
         <label htmlFor="" className="text-titleH2 my-2 text-lg">
           description
@@ -46,7 +41,7 @@ function modal({
             className="bg-btn w-full text-textColor rounded-xl"
             onClick={(e) => {
               e.preventDefault();
-              setInputValue([...inputValue, { id: nextId++, name: title }]);
+              setInputVal([...inputVal, { id: nextId++, name: title }]);
             }}
           >
             add category

@@ -34,10 +34,14 @@ function AppTitle() {
 
   return (
     <div className="bg-backgroundTitle text-primary flex items-center justify-center py-2">
-      <h1 className=" text-xl  font-bold">
+      <h1 className="md:text-xl md:font-bold">
         Inventory App using tailwind & React.js
       </h1>
-      <button className="ml-10 text-2xl " type="button" onClick={toggleDarkMode}>
+      <button
+        className="ml-10 text-2xl "
+        type="button"
+        onClick={toggleDarkMode}
+      >
         <PiSunHorizon className=" block dark:hidden" />
         <PiCloudMoonBold className=" hidden dark:block" />
       </button>

@@ -1,18 +1,21 @@
 import React, { useContext } from "react";
-import { SearchContext } from "../App";
+import { MyContext } from "../App";
 
-function SearchBar({ setSearch }) {
-  const search = useContext(SearchContext);
+function SearchBar() {
+  const { searching } = useContext(MyContext);
+  const [searchVal, setSearchVal] = searching;
+
   return (
-    <div className="flex w-full justify-between ">
-      <label className="text-Inputs text-lg" htmlFor="">
+    <div className="flex md:w-full justify-between">
+      <label className="hidden md:block text-Inputs text-lg" htmlFor="">
         search
       </label>
       <input
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
+        placeholder="search..."
+        value={searchVal}
+        onChange={(e) => setSearchVal(e.target.value)}
         type="search"
-        className="input outline-none"
+        className="input w-full md:w-fit outline-none placeholder:md:text-transparent"
       />
     </div>
   );
