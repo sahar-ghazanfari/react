@@ -15,7 +15,7 @@ function SearchBar() {
         value={searchVal}
         onChange={(e) => setSearchVal(e.target.value)}
         type="search"
-        className="input w-full md:w-fit outline-none placeholder:md:text-transparent"
+        className="input w-full md:w-fit outline-none placeholder:text-amber-950 placeholder:md:text-transparent"
       />
     </div>
   );

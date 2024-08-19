@@ -16,7 +16,7 @@ function MobileFilter({ onChange }) {
           onChange={onChange}
           id="category"
           name="category"
-          className="p-2 bg-transparent border border-Inputs rounded-xl text-titleH2 text-lg"
+          className="p-2 bg-transparent border border-black dark:border-Inputs rounded-xl text-black dark:text-titleH2 text-lg"
         >
           <option value="categories">All</option>
           {inputVal.map((value) => (

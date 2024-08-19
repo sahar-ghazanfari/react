@@ -9,7 +9,7 @@ function NewCategory({ onChange, onSubmit }) {
   return (
     <div className="w-full md:w-1/2">
       <div
-        className="text-secondary cursor-pointer text-xl font-semibold my-3 md:mt-8"
+        className="text-amber-950 dark:text-secondary cursor-pointer text-xl font-semibold my-3 md:mt-8"
         onClick={() => setModal(true)}
       >
         {!modal ? <div>add new category?</div> : ""}

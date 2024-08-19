@@ -33,7 +33,7 @@ function AppTitle() {
   }, []);
 
   return (
-    <div className="bg-backgroundTitle text-primary flex items-center justify-center py-2">
+    <div className="bg-modalLight dark:bg-backgroundTitle text-primaryLight dark:text-primary  flex items-center justify-center py-2">
       <h1 className="md:text-xl md:font-bold">
         Inventory App using tailwind & React.js
       </h1>

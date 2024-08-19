@@ -9,36 +9,36 @@ function modal({ setModal, title, setTitle }) {
 
   return (
     <div>
-      <h2 className="text-2xl font-bold text-textColor mb-2">
+      <h2 className="text-xl font-semibold md:text-2xl md:font-bold text-amber-950   dark:text-textColor mb-2">
         Add new category
       </h2>
-      <form className="bg-modal flex flex-col rounded-lg p-4">
+      <form className="bg-modalLight dark:bg-modal flex flex-col rounded-lg p-4">
         <InputFields
           label="title"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-        <label htmlFor="" className="text-titleH2 my-2 text-lg">
+        <label htmlFor="" className="text-amber-950 dark:text-titleH2 my-2 text-lg">
           description
         </label>
         <textarea
           id="description"
           name="description"
-          className="input w-full"
+          className="input border-amber-950 w-full"
           rows="2"
           cols="50"
         ></textarea>
         <div className="mt-5 flex justify-around gap-x-3 ">
           <button
-            className="bg-transparent py-1 w-full border border-Inputs rounded-xl text-titleH2"
+            className="bg-transparent py-1 w-full border border-amber-950 dark:border-Inputs rounded-xl text-amber-950 dark:text-titleH2"
             onClick={() => setModal(false)}
           >
             cancel
           </button>
           <button
             type="submit"
-            className="bg-btn w-full text-textColor rounded-xl"
+            className="bg-amber-950 dark:bg-btn w-full text-white dark:text-textColor rounded-xl"
             onClick={(e) => {
               e.preventDefault();
               setInputVal([...inputVal, { id: nextId++, name: title }]);

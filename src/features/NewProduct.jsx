@@ -8,10 +8,13 @@ function NewProduct({ onChange, onSubmit }) {
 
   return (
     <div>
-      <h2 className="text-xl md:text-2xl font-semibold md:font-bold text-textColor mb-2">
+      <h2 className="text-xl md:text-2xl font-semibold md:font-bold text-amber-950 dark:text-textColor mb-2">
         Add new product
       </h2>
-      <form className="bg-modal rounded-xl p-4" onSubmit={onSubmit}>
+      <form
+        className="bg-modalLight dark:bg-modal rounded-xl p-4"
+        onSubmit={onSubmit}
+      >
         <InputFields
           label="title"
           type="text"
@@ -29,7 +32,7 @@ function NewProduct({ onChange, onSubmit }) {
           onChange={onChange}
         />
         <div className="flex flex-col">
-          <label htmlFor="option" className="text-titleH2 my-2 text-lg">
+          <label htmlFor="option" className="text-amber-950 dark:text-titleH2 my-2 text-lg">
             category
           </label>
           <select
@@ -37,7 +40,7 @@ function NewProduct({ onChange, onSubmit }) {
             onChange={onChange}
             id="option"
             name="option"
-            className="bg-transparent p-3 border border-Inputs rounded-xl text-titleH2 mb-4 text-lg"
+            className="bg-transparent p-3 border border-amber-950 dark:border-Inputs rounded-xl text-amber-950 dark:text-titleH2 mb-4 text-lg"
           >
             <option value="categories">select a category</option>
             {inputVal.map((value) => (
@@ -47,7 +50,7 @@ function NewProduct({ onChange, onSubmit }) {
         </div>
         <button
           type="submit"
-          className="bg-btn w-full text-textColor rounded-xl py-2 "
+          className="bg-amber-950 dark:bg-btn w-full text-white dark:text-textColor rounded-xl py-2 "
         >
           add new product
         </button>

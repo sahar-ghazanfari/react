@@ -17,11 +17,16 @@
     --color-quantity: 148, 162, 180;
     --color-white: 255, 255, 255;
     --color-black: 0, 0, 0;
+    --background-app-light: 254, 243, 226;
+    --color-background-modal-light: 190, 198, 160;
+    --color-primary-light: 112, 136, 113;
+    --color-texts-light: 96, 102, 118;
+    --color-green: 103, 125, 106;
   }
 }
 
 @layer components {
   .input {
-    @apply bg-transparent border border-Inputs rounded-lg w-fit p-2 text-titleH2 my-2 text-lg;
+    @apply bg-transparent border border-amber-950 dark:border-Inputs rounded-lg w-fit p-2 text-titleH2 my-2 text-lg;
   }
 }

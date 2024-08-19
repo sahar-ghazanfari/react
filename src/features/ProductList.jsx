@@ -5,11 +5,10 @@ function ProductList({ onDelete }) {
   const { searching, products } = useContext(MyContext);
   const [searchVal, setSearchVal] = searching;
   const [productVal, setProductVal] = products;
-  
 
   return (
     <div>
-      <h2 className="text-textColor font-bold text-xl border-b">
+      <h2 className="text-amber-950 dark:text-textColor font-bold text-xl border-b border-b-amber-950 dark:border-b-gray-500 dar">
         Product List
       </h2>
       {productVal
@@ -20,19 +19,23 @@ function ProductList({ onDelete }) {
             val.title.toLowerCase().includes(searchVal.toLowerCase())
           ) {
             return val;
-          }
+           }
         })
         .map((val, key) => {
           return (
             <div key={key}>
               <div className="flex justify-between mt-4">
-                <span className="text-lg text-Inputs">{val.option}</span>
+                <span className="text-lg text-amber-950 dark:text-Inputs">
+                  {val.option}
+                </span>
                 <div className="space-x-3 ">
-                  <span className="text-lg text-Inputs">{val.createdAt}</span>
-                  <span className="border border-Inputs text-Inputs py-1 px-3 rounded-full">
+                  <span className="text-lg text-amber-950 dark:text-Inputs">
+                    {val.createdAt}
+                  </span>
+                  <span className="border border-amber-950 dark:border-Inputs text-amber-950 dark:text-Inputs py-1 px-3 rounded-full">
                     {val.title}
                   </span>
-                  <span className="ring ring-quantityNumber text-quantityNumber bg-btn rounded-full px-3 py-1">
+                  <span className="dark:ring dark:ring-quantityNumber text-green dark:text-quantityNumber bg-modalLight dark:bg-btn rounded-full px-3 py-1">
                     {val.quantity}
                   </span>
                   <button
