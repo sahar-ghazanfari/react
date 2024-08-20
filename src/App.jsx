@@ -20,6 +20,7 @@ function App() {
   });
   const [product, setProduct] = useState([]);
   const [search, setSearch] = useState("");
+  const [title, setTitle] = useState("");
 
   // handling
   const handleChange = (e) => {
@@ -29,6 +30,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+    if (!formData.title || !formData.quantity || !formData.option) return null;
     setProduct([...product].concat(formData));
   };
 
@@ -41,6 +43,7 @@ function App() {
     searching: [search, setSearch],
     products: [product, setProduct],
     Values: [inputValue, setInputValue],
+    Titles: [title, setTitle],
   };
 
   return (
@@ -54,7 +57,7 @@ function App() {
               <NewCategory onSubmit={handleSubmit} onChange={handleChange} />
               <div className="w-full md:w-1/2">
                 <Filters onChange={handleChange} />
-                <ProductList onDelete={handleDelete} product={product} />
+                <ProductList onDelete={handleDelete} />
               </div>
             </div>
           </div>

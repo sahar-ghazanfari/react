@@ -21,7 +21,7 @@ function Filters({ onChange }) {
             <Sorting />
           </div>
           <div className="flex justify-between">
-            <label className="dark:text-Inputs text-lg" htmlFor="category">
+            <label className="text-amber-950 dark:text-Inputs text-lg" htmlFor="category">
               category
             </label>
             <select

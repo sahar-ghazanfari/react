@@ -6,6 +6,19 @@ function ProductList({ onDelete }) {
   const [searchVal, setSearchVal] = searching;
   const [productVal, setProductVal] = products;
 
+  const productsLists = productVal.length;
+  if (!productsLists)
+    return (
+      <div>
+        <h2 className="text-amber-950 dark:text-textColor font-bold text-xl border-b border-b-amber-950 dark:border-b-gray-500 dar">
+          Product List
+        </h2>
+        <div className="flex justify-center mt-10 dark:text-Inputs text-amber-950">
+          <span>❌NO PRODUCT FOUND❌</span>
+        </div>
+      </div>
+    );
+
   return (
     <div>
       <h2 className="text-amber-950 dark:text-textColor font-bold text-xl border-b border-b-amber-950 dark:border-b-gray-500 dar">
@@ -19,7 +32,7 @@ function ProductList({ onDelete }) {
             val.title.toLowerCase().includes(searchVal.toLowerCase())
           ) {
             return val;
-           }
+          }
         })
         .map((val, key) => {
           return (

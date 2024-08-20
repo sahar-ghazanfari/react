@@ -27,6 +27,6 @@
 
 @layer components {
   .input {
-    @apply bg-transparent border border-amber-950 dark:border-Inputs rounded-lg w-fit p-2 text-titleH2 my-2 text-lg;
+    @apply bg-transparent border border-amber-950 dark:border-Inputs rounded-lg w-fit p-2 text-amber-950 dark:text-titleH2 my-2 text-lg;
   }
 }

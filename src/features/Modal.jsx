@@ -2,24 +2,37 @@ import React, { useContext } from "react";
 import InputFields from "../ui/InputFields";
 import { MyContext } from "../App";
 
-function modal({ setModal, title, setTitle }) {
-  const { Values } = useContext(MyContext);
+function modal({ setModal }) {
+  const { Values, Titles } = useContext(MyContext);
   const [inputVal, setInputVal] = Values;
+  const [titleVal, setTitleVal] = Titles;
   let nextId = 0;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!titleVal) return null;
+    setInputVal([...inputVal, { id: nextId++, name: titleVal }]);
+  };
 
   return (
     <div>
       <h2 className="text-xl font-semibold md:text-2xl md:font-bold text-amber-950   dark:text-textColor mb-2">
         Add new category
       </h2>
-      <form className="bg-modalLight dark:bg-modal flex flex-col rounded-lg p-4">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-modalLight dark:bg-modal flex flex-col rounded-lg p-4"
+      >
         <InputFields
           label="title"
           type="text"
           value={title}
-          onChange={(e) => setTitle(e.target.value)}
+          onChange={(e) => setTitleVal(e.target.value)}
         />
-        <label htmlFor="" className="text-amber-950 dark:text-titleH2 my-2 text-lg">
+        <label
+          htmlFor=""
+          className="text-amber-950 dark:text-titleH2 my-2 text-lg"
+        >
           description
         </label>
         <textarea
@@ -39,10 +52,6 @@ function modal({ setModal, title, setTitle }) {
           <button
             type="submit"
             className="bg-amber-950 dark:bg-btn w-full text-white dark:text-textColor rounded-xl"
-            onClick={(e) => {
-              e.preventDefault();
-              setInputVal([...inputVal, { id: nextId++, name: title }]);
-            }}
           >
             add category
           </button>

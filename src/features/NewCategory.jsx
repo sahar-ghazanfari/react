@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Modal from "../features/Modal";
 import NewProduct from "./NewProduct";
 
 function NewCategory({ onChange, onSubmit }) {
   const [modal, setModal] = useState(false);
-  const [title, setTitle] = useState("");
 
   return (
     <div className="w-full md:w-1/2">
@@ -15,14 +14,11 @@ function NewCategory({ onChange, onSubmit }) {
         {!modal ? <div>add new category?</div> : ""}
       </div>
       {modal ? (
-        <Modal setModal={setModal} title={title} setTitle={setTitle} />
+        <Modal setModal={setModal} />
       ) : (
         ""
       )}
-      <NewProduct
-        onSubmit={onSubmit}
-        onChange={onChange}
-      />
+      <NewProduct onSubmit={onSubmit} onChange={onChange} />
     </div>
   );
 }

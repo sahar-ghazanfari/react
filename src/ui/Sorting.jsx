@@ -1,26 +1,7 @@
 import React, { useContext } from "react";
-import { MyContext } from "../App";
+// import { MyContext } from "../App";
 
 function Sorting() {
-  const { products } = useContext(MyContext);
-  const [productVal, setProductVal] = products;
-
-  const handleSorting = () => {
-    if (value == "earlest") {
-      productVal
-        ?.map((time) => {
-          return { ...time, date: productVal.createdAt };
-        })
-        .sort((a, b) => a.date - b.date);
-    } else {
-      productVal
-        ?.map((time) => {
-          return { ...time, date: productVal.createdAt };
-        })
-        .sort((a, b) => b.date - a.date);
-    }
-  };
-
   return (
     <div className="md:w-full md:flex md:justify-between ">
       <label
@@ -35,12 +16,8 @@ function Sorting() {
         className="bg-transparent border border-amber-950 dark:border-Inputs rounded-lg text-amber-950 dark:text-titleH2 text-lg  p-2"
       >
         <option value="all">All</option>
-        <option value="earlest" onChange={handleSorting}>
-          earlest
-        </option>
-        <option value="latest" onChange={handleSorting}>
-          latest
-        </option>
+        <option value="earlest">earlest</option>
+        <option value="latest">latest</option>
       </select>
     </div>
   );
