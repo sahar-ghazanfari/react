@@ -13,11 +13,7 @@ function NewCategory({ onChange, onSubmit }) {
       >
         {!modal ? <div>add new category?</div> : ""}
       </div>
-      {modal ? (
-        <Modal setModal={setModal} />
-      ) : (
-        ""
-      )}
+      {modal ? <Modal setModal={setModal} /> : ""}
       <NewProduct onSubmit={onSubmit} onChange={onChange} />
     </div>
   );

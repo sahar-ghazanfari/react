@@ -19,8 +19,8 @@ function MobileFilter({ onChange }) {
           className="p-2 bg-transparent border border-black dark:border-Inputs rounded-xl text-black dark:text-titleH2 text-lg"
         >
           <option value="categories">All</option>
-          {inputVal.map((value) => (
-            <option key={value.id}>{value.name}</option>
+          {inputVal.map((value, index) => (
+            <option key={index}>{value.name}</option>
           ))}
         </select>
       </div>

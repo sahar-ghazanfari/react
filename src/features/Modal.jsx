@@ -26,7 +26,7 @@ function modal({ setModal }) {
         <InputFields
           label="title"
           type="text"
-          value={title}
+          value={titleVal}
           onChange={(e) => setTitleVal(e.target.value)}
         />
         <label

@@ -4,13 +4,13 @@ import Filters from "./features/Filters";
 import NewCategory from "./features/NewCategory";
 import ProductList from "./features/ProductList";
 import MobileFilter from "./features/MobileFilter";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 // useContext
-export const MyContext = createContext();
+export const MyContext = createContext("");
 
 function App() {
   // useState
-  const [inputValue, setInputValue] = useState([]);
   const [formData, setFormData] = useState({
     title: "",
     quantity: "",
@@ -18,9 +18,10 @@ function App() {
     id: new Date().valueOf(),
     createdAt: new Date().toLocaleDateString("fa-IR"),
   });
-  const [product, setProduct] = useState([]);
   const [search, setSearch] = useState("");
   const [title, setTitle] = useState("");
+  const [product, setProduct] = useLocalStorage("product", []);
+  const [inputValue, setInputValue] = useLocalStorage("inputValue", []);
 
   // handling
   const handleChange = (e) => {
@@ -47,23 +48,21 @@ function App() {
   };
 
   return (
-    <div>
-      <AppTitle />
-      <div className="px-10 container max-w-screen-xl md:mx-auto">
-        <MyContext.Provider value={valueProvider}>
-          <div>
-            <MobileFilter onChange={handleChange} />
-            <div className="flex flex-col items-center md:flex-row md:gap-x-10">
-              <NewCategory onSubmit={handleSubmit} onChange={handleChange} />
-              <div className="w-full md:w-1/2">
-                <Filters onChange={handleChange} />
-                <ProductList onDelete={handleDelete} />
-              </div>
+    <MyContext.Provider value={valueProvider}>
+      <div>
+        <AppTitle />
+        <div className="px-10 container max-w-screen-xl md:mx-auto">
+          <MobileFilter onChange={handleChange} />
+          <div className="flex flex-col items-center md:flex-row md:gap-x-10">
+            <NewCategory onSubmit={handleSubmit} onChange={handleChange} />
+            <div className="w-full md:w-1/2">
+              <Filters onChange={handleChange} />
+              <ProductList onDelete={handleDelete} />
             </div>
           </div>
-        </MyContext.Provider>
+        </div>
       </div>
-    </div>
+    </MyContext.Provider>
   );
 }
 

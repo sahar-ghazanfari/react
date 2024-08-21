@@ -3,9 +3,11 @@ import SearchBar from "../ui/SearchBar";
 import Sorting from "../ui/Sorting";
 import { MyContext } from "../App";
 
-function Filters({ onChange }) {
-  const { Values, Data } = useContext(MyContext);
+function Filters() {
+// { onChange }
+  const { Values } = useContext(MyContext);
   const [inputVal, setInputVal] = Values;
+  // const [sortByCategory, setSortByCategory] = useState("");
 
   return (
     <div className="hidden md:block">
@@ -21,19 +23,22 @@ function Filters({ onChange }) {
             <Sorting />
           </div>
           <div className="flex justify-between">
-            <label className="text-amber-950 dark:text-Inputs text-lg" htmlFor="category">
+            <label
+              className="text-amber-950 dark:text-Inputs text-lg"
+              htmlFor="category"
+            >
               category
             </label>
             <select
-              value={Data.option}
-              onChange={onChange}
+              // value={sortByCategory}
+              // onChange={(e) => setSortByCategory(e.target.value)}
               id="category"
               name="category"
               className="bg-transparent border border-black dark:border-Inputs rounded-xl p-1 dark:text-titleH2 text-black mb-4 text-lg"
             >
               <option value="categories">All</option>
-              {inputVal.map((value) => (
-                <option key={value.id}>{value.name}</option>
+              {inputVal.map((value, index) => (
+                <option key={index}>{value.name}</option>
               ))}
             </select>
           </div>

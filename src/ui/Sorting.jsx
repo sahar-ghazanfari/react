@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-// import { MyContext } from "../App";
+import React from "react";
 
 function Sorting() {
   return (
@@ -16,7 +15,7 @@ function Sorting() {
         className="bg-transparent border border-amber-950 dark:border-Inputs rounded-lg text-amber-950 dark:text-titleH2 text-lg  p-2"
       >
         <option value="all">All</option>
-        <option value="earlest">earlest</option>
+        <option value="earliest">earliest</option>
         <option value="latest">latest</option>
       </select>
     </div>

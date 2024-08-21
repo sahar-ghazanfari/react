@@ -3,8 +3,8 @@ import { MyContext } from "../App";
 
 function ProductList({ onDelete }) {
   const { searching, products } = useContext(MyContext);
-  const [searchVal, setSearchVal] = searching;
   const [productVal, setProductVal] = products;
+  const [searchVal, setSearchVal] = searching;
 
   const productsLists = productVal.length;
   if (!productsLists)
@@ -34,9 +34,9 @@ function ProductList({ onDelete }) {
             return val;
           }
         })
-        .map((val, key) => {
+        .map((val, index) => {
           return (
-            <div key={key}>
+            <div key={index}>
               <div className="flex justify-between mt-4">
                 <span className="text-lg text-amber-950 dark:text-Inputs">
                   {val.option}

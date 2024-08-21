@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import InputFields from "../ui/InputFields";
 import { MyContext } from "../App";
 
@@ -32,7 +32,10 @@ function NewProduct({ onChange, onSubmit }) {
           onChange={onChange}
         />
         <div className="flex flex-col">
-          <label htmlFor="option" className="text-amber-950 dark:text-titleH2 my-2 text-lg">
+          <label
+            htmlFor="option"
+            className="text-amber-950 dark:text-titleH2 my-2 text-lg"
+          >
             category
           </label>
           <select
@@ -43,8 +46,8 @@ function NewProduct({ onChange, onSubmit }) {
             className="bg-transparent p-3 border border-amber-950 dark:border-Inputs rounded-xl text-amber-950 dark:text-titleH2 mb-4 text-lg"
           >
             <option value="categories">select a category</option>
-            {inputVal.map((value) => (
-              <option key={value.id}>{value.name}</option>
+            {inputVal.map((value, index) => (
+              <option key={index}>{value.name}</option>
             ))}
           </select>
         </div>
