@@ -6,9 +6,11 @@ function NewCategory({ onChange, onSubmit }) {
   const [modal, setModal] = useState(false);
 
   return (
-    <div className="w-full md:w-1/2">
+    <div
+    //  className="w-full md:w-1/2"
+    >
       <div
-        className="text-amber-950 dark:text-secondary cursor-pointer text-xl font-semibold my-3 md:mt-8"
+        className="text-amber-950 dark:text-secondary cursor-pointer text-xl font-semibold my-3"
         onClick={() => setModal(true)}
       >
         {!modal ? <div>add new category?</div> : ""}

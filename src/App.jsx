@@ -49,16 +49,18 @@ function App() {
 
   return (
     <MyContext.Provider value={valueProvider}>
-      <div>
-        <AppTitle />
-        <div className="px-10 container max-w-screen-xl md:mx-auto">
+      <div className="grid grid-cols-1">
+        <div>
+          <AppTitle />
           <MobileFilter onChange={handleChange} />
-          <div className="flex flex-col items-center md:flex-row md:gap-x-10">
+        </div>
+        <div className="grid md:grid-cols-2 container max-w-screen-xl md:mx-auto md:gap-x-20 md:mt-10">
+          <div>
             <NewCategory onSubmit={handleSubmit} onChange={handleChange} />
-            <div className="w-full md:w-1/2">
-              <Filters onChange={handleChange} />
-              <ProductList onDelete={handleDelete} />
-            </div>
+          </div>
+          <div>
+            <Filters onChange={handleChange} />
+            <ProductList onDelete={handleDelete} />
           </div>
         </div>
       </div>

@@ -9,14 +9,13 @@ function modal({ setModal }) {
   let nextId = 0;
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     if (!titleVal) return null;
     setInputVal([...inputVal, { id: nextId++, name: titleVal }]);
   };
 
   return (
     <div>
-      <h2 className="text-xl font-semibold md:text-2xl md:font-bold text-amber-950   dark:text-textColor mb-2">
+      <h2 className="text-xl font-semibold md:text-2xl md:font-bold text-amber-950  dark:text-textColor mb-2">
         Add new category
       </h2>
       <form
