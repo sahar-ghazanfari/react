@@ -18,6 +18,8 @@ function App() {
     id: new Date().valueOf(),
     createdAt: new Date().toLocaleDateString("fa-IR"),
   });
+  const [sort, setSort] = useState("all");
+  const [category, setCategory] = useState("all");
   const [search, setSearch] = useState("");
   const [title, setTitle] = useState("");
   const [product, setProduct] = useLocalStorage("product", []);
@@ -45,6 +47,8 @@ function App() {
     products: [product, setProduct],
     Values: [inputValue, setInputValue],
     Titles: [title, setTitle],
+    Sorts: [sort, setSort],
+    categories: [category, setCategory],
   };
 
   return (
@@ -55,9 +59,7 @@ function App() {
           <MobileFilter onChange={handleChange} />
         </div>
         <div className="grid md:grid-cols-2 container max-w-screen-xl md:mx-auto md:gap-x-20 md:mt-10">
-          <div>
-            <NewCategory onSubmit={handleSubmit} onChange={handleChange} />
-          </div>
+          <NewCategory onSubmit={handleSubmit} onChange={handleChange} />
           <div>
             <Filters onChange={handleChange} />
             <ProductList onDelete={handleDelete} />

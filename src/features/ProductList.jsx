@@ -2,12 +2,14 @@ import React, { useContext } from "react";
 import { MyContext } from "../App";
 
 function ProductList({ onDelete }) {
-  const { searching, products } = useContext(MyContext);
+  const { searching, Sorts, products, categories } = useContext(MyContext);
   const [productVal, setProductVal] = products;
   const [searchVal, setSearchVal] = searching;
+  const [sortVal, setSortVal] = Sorts;
+  const [categoryVal, setCategoryVal] = categories;
 
   const productsLists = productVal.length;
-  if (!productsLists)
+  if (!productsLists || !categoryVal) {
     return (
       <div>
         <h2 className="text-amber-950 dark:text-textColor font-bold text-xl border-b border-b-amber-950 dark:border-b-gray-500 dar">
@@ -18,6 +20,7 @@ function ProductList({ onDelete }) {
         </div>
       </div>
     );
+  }
 
   return (
     <div>
@@ -34,19 +37,36 @@ function ProductList({ onDelete }) {
             return val;
           }
         })
+        .filter((item) => {
+          if (categoryVal !== "all") {
+            return item.option === categoryVal;
+          }
+          if (categoryVal === "all") {
+            return item.option !== categoryVal;
+          }
+        })
+        .sort(() => {
+          if (sortVal === "earliest") {
+            return 1;
+          }
+          if (sortVal === "latest") {
+            return -1;
+          }
+          return -1;
+        })
         .map((val, index) => {
           return (
             <div key={index}>
               <div className="flex justify-between mt-4">
                 <span className="text-lg text-amber-950 dark:text-Inputs">
-                  {val.option}
+                  {val.title}
                 </span>
                 <div className="space-x-3 ">
                   <span className="text-lg text-amber-950 dark:text-Inputs">
                     {val.createdAt}
                   </span>
                   <span className="border border-amber-950 dark:border-Inputs text-amber-950 dark:text-Inputs py-1 px-3 rounded-full">
-                    {val.title}
+                    {val.option}
                   </span>
                   <span className="dark:ring dark:ring-quantityNumber text-green dark:text-quantityNumber bg-modalLight dark:bg-btn rounded-full px-3 py-1">
                     {val.quantity}
